@@ -1,0 +1,23 @@
+syntax = "proto3";
+package calculate;
+option go_package = "github.com/TimofeySar/ya_go_calculate.go/internal/orchestrator";
+
+service TaskService {
+    rpc GetTask (Empty) returns (Task) {}
+    rpc SendResult (Result) returns (Empty) {}
+}
+
+message Empty {}
+
+message Task {
+    string id = 1;
+    double arg1 = 2;
+    double arg2 = 3;
+    string operation = 4;
+    int32 operation_time = 5;
+}
+
+message Result {
+    string id = 1;
+    double result = 2;
+}
